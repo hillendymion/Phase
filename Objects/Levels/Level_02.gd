@@ -10,6 +10,7 @@ const LIMIT_BOTTOM = 690
 
 func _ready():
 	randomize()
+	GlobalVars.phase = true #reset it for level.
 	GlobalVars.CurrentLevel = 2
 	#set camera to camera P if available.
 	cam.make_current()

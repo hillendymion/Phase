@@ -268,11 +268,11 @@ vframes = 8
 frame = 1
 
 [node name="Kitty" type="Sprite" parent="."]
-position = Vector2( 137, 94 )
+position = Vector2( 129, 105.5 )
 texture = ExtResource( 2 )
 hframes = 11
 vframes = 2
-frame = 4
+frame = 3
 
 [node name="ColorRect" type="ColorRect" parent="."]
 light_mask = 0

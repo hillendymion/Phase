@@ -513,4 +513,4 @@ stream = ExtResource( 3 )
 [node name="SFX_Phase_White" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 5 )
 
-[connection signal="area_shape_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_shape_entered"]
+[connection signal="body_entered" from="Hurtbox" to="." method="_on_Hurtbox_body_entered"]

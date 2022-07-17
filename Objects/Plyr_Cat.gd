@@ -135,17 +135,24 @@ func Menu_State(delta):
 
 
 func _on_DeathPit_body_entered(body: Node) -> void:
-	die()
-
-
-func _on_Area2D_spikes_entered(body: Node) -> void:
-	#is there w way to tell if the spikes are visible?
-	die() # Replace with function body.
-
-func _on_Hurtbox_area_shape_entered(area_rid: RID, area: Area2D, area_shape_index: int, local_shape_index: int) -> void:
-	if is_in_group("Enemy"):
+	if body == self:
+		print("moobs")
 		die()
 
+func _on_Spikes_body_entered(body: Node) -> void:
+	if body == self:
+		print("spiked")
+		die()
+
+
+
+func _on_Hurtbox_body_entered(body: Node) -> void:
+	#this one connects to spikes and enemies.
+	print("I farted")
+	if get_collision_layer_bit(4) == true:
+		#learn how groups are made.
+		#enemy ollision layer bit.
+		die()
 
 func die():
 		#not connecting?
@@ -163,11 +170,4 @@ func die():
 	#	get_tree().change_scene("res://Objects/Levels/Level_03.tscn")
 	#else:
 	#	get_tree().change_scene("res://Objects/Levels/Level_01.tscn")
-
-
-
-
-func _on_Spikes_body_entered(body: Node) -> void:
-	pass # Replace with function body.
-
 

@@ -5,12 +5,12 @@
 [ext_resource path="res://SFX/Monster_Growl.ogg" type="AudioStream" id=3]
 
 [sub_resource type="CapsuleShape2D" id=1]
-radius = 7.0
+radius = 4.99999
 height = 6.0
 
 [sub_resource type="CapsuleShape2D" id=2]
-radius = 5.0
-height = 22.0
+radius = 6.99996
+height = 18.0001
 
 [sub_resource type="Animation" id=3]
 resource_name = "Idle"
@@ -72,7 +72,7 @@ vframes = 2
 frame = 11
 
 [node name="Collider" type="CollisionShape2D" parent="."]
-position = Vector2( 1, 9 )
+position = Vector2( 1, 11 )
 rotation = 1.5708
 shape = SubResource( 1 )
 
@@ -82,7 +82,7 @@ collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
 modulate = Color( 0.858824, 0.219608, 0.219608, 1 )
-position = Vector2( 1, 5 )
+position = Vector2( 2, 8 )
 rotation = 1.5708
 shape = SubResource( 2 )
 

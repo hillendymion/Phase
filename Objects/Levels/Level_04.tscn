@@ -1,15 +1,351 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Objects/TileMap1.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Objects/CameraP.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Objects/Backgrounds/BG_W_TheMidNight .tscn" type="PackedScene" id=3]
 [ext_resource path="res://Objects/Girl.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Objects/Plyr_Cat.tscn" type="PackedScene" id=5]
+[ext_resource path="res://ART/Sprites/cat2-Sheet.png" type="Texture" id=5]
 [ext_resource path="res://Music/Cats_Cradle.mp3" type="AudioStream" id=6]
 [ext_resource path="res://Scripts/Cutscene_Intro.gd" type="Script" id=7]
+[ext_resource path="res://Objects/TileSets/MAinSet2.tres" type="TileSet" id=8]
+[ext_resource path="res://SFX/Player_Killed.ogg" type="AudioStream" id=9]
+[ext_resource path="res://Objects/UI/ManaFont.tres" type="Theme" id=10]
+[ext_resource path="res://Fonts/ESKARGOT.ttf" type="DynamicFontData" id=11]
 
 [sub_resource type="Animation" id=1]
-resource_name = "cutscene"
+resource_name = "Cutscene"
+length = 20.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Kitty:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3, 0.4, 0.5, 0.7, 0.9, 1.1, 1.3, 1.5, 1.7, 1.9, 2.1, 2.8, 3.3, 4.8, 5, 5.1, 5.2, 5.3, 5.4, 5.6, 5.8, 6.1, 6.4, 6.7, 7, 7.3, 7.5, 7.7, 7.9, 8.1, 8.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 0, 1, 8, 11, 12, 13, 14, 14, 15, 11, 9, 10, 9, 9, 11, 12, 13, 14, 9, 16, 17, 16, 17, 16, 17, 9, 1, 2, 0, 1, 2 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Kitty:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.3, 0.5, 0.6, 2, 4.9, 5.3, 5.4, 7.4, 8.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( -33, 112 ), Vector2( 18, 122 ), Vector2( 46, 132 ), Vector2( 46, 132 ), Vector2( 122, 132 ), Vector2( 122, 132 ), Vector2( 163, 131 ), Vector2( 165, 132 ), Vector2( 165, 132 ), Vector2( 338, 131 ) ]
+}
+tracks/2/type = "audio"
+tracks/2/path = NodePath("SFX_Plyr")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"clips": [  ],
+"times": PoolRealArray(  )
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("SFX_Plyr:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 2.9 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Girl:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 230, 144 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Girl/PSprite:frame")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 3, 4.9, 5, 5.1, 5.2, 5.3, 5.4, 5.6, 5.8, 6.1, 6.4, 6.7, 7, 7.3, 7.5, 7.7, 7.9, 8.1, 8.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 3, 1, 1, 2, 0, 1, 2, 2, 3, 4, 3, 4, 3, 4, 2, 1, 2, 0, 1, 2 ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Girl/PSprite:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 4.9, 5.4, 7.4, 8.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, 0 ), Vector2( -55, 0 ), Vector2( -55, 0 ), Vector2( 114, 2 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Girl/PSprite:scale")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 3.7, 7.3, 7.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 1, 1 ), Vector2( -1, 1 ), Vector2( -1, 1 ), Vector2( 1, 1 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("Node2D/ColorRect:color")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0, 0.2, 7.4, 8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 0 ), Color( 0.101961, 0.101961, 0.101961, 0.941176 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("Scroll:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0, 8, 16 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, 0 ), Vector2( 0, 0 ) ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("Scroll/Title:rect_position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 7.9, 16 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 190 ), Vector2( 0, -250 ) ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("Scroll/Label:rect_position")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0, 8.7, 16.9 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 260 ), Vector2( 0, 260 ), Vector2( 8, -192 ) ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("Scroll/Label:margin_left")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 16.9 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 8.0 ]
+}
+tracks/13/type = "value"
+tracks/13/path = NodePath("Scroll/Label:margin_right")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 312.0 ]
+}
+
+[sub_resource type="Animation" id=2]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Kitty:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Kitty:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -33, 112 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("SFX_Plyr:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Girl:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 230, 144 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Girl/PSprite:frame")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0 ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Girl/PSprite:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Girl/PSprite:scale")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -1, 1 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Node2D/ColorRect:color")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("Scroll:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("Scroll/Title:rect_position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 191 ) ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("Scroll/Label:rect_position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 260 ) ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("Scroll/Label:margin_left")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 8.0 ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("Scroll/Label:margin_right")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 312.0 ]
+}
+
+[sub_resource type="DynamicFont" id=3]
+font_data = ExtResource( 11 )
+
+[sub_resource type="Theme" id=4]
+default_font = SubResource( 3 )
 
 [node name="Level4" type="Node2D"]
 script = ExtResource( 7 )
@@ -23,22 +359,109 @@ limit_top = 0
 limit_right = 320
 limit_bottom = 180
 
+[node name="BottomRight" parent="CamP" index="0"]
+position = Vector2( 208, 77 )
+
 [node name="Girl" parent="." instance=ExtResource( 4 )]
 position = Vector2( 230, 144 )
 collision_layer = 2
-collision_mask = 4
+collision_mask = 0
+
+[node name="CollisionShape2D" parent="Girl" index="0"]
+visible = false
+
+[node name="PSprite" parent="Girl" index="1"]
+scale = Vector2( -1, 1 )
+
+[node name="winGame" parent="Girl" index="3"]
+visible = false
+
+[node name="CollisionShape2D" parent="Girl/winGame" index="0"]
+visible = false
+
+[node name="TileMap2" type="TileMap" parent="."]
+z_index = 2
+tile_set = ExtResource( 8 )
+cell_size = Vector2( 16, 16 )
+cell_custom_transform = Transform2D( 16, 0, 0, 16, 0, 0 )
+format = 1
+tile_data = PoolIntArray( 0, 22, 0, 1, 22, 0, 2, 19, 0, 3, 18, 0, 7, 20, 0, 8, 19, 0, 9, 19, 0, 10, 19, 0, 11, 18, 0, 15, 20, 0, 16, 22, 0, 17, 22, 0, 18, 22, 0, 19, 22, 0, 20, 22, 0, 21, 22, 0, 65536, 22, 0, 65537, 18, 0, 65552, 20, 0, 65553, 19, 0, 65554, 19, 0, 65555, 19, 0, 65556, 19, 0, 131072, 18, 0 )
 
 [node name="TileMap" parent="." instance=ExtResource( 1 )]
+tile_set = ExtResource( 8 )
 collision_layer = 2
 collision_mask = 4
-tile_data = PoolIntArray( 65535, 13, 0, 1, 14, 0, 17, 14, 0, 20, 13, 0, 65537, 14, 0, 65540, 14, 0, 131073, 14, 0, 131081, 14, 0, 262143, 13, 0, 196609, 14, 0, 196625, 14, 0, 196628, 13, 0, 262145, 14, 0, 262148, 14, 0, 327681, 14, 0, 327689, 14, 0, 458751, 13, 0, 393217, 14, 0, 393233, 14, 0, 393236, 13, 0, 458756, 14, 0, 524297, 14, 0, 655359, 0, 0, 589824, 2, 0, 589825, 2, 0, 589826, 2, 0, 589827, 2, 0, 589828, 2, 0, 589829, 2, 0, 589830, 2, 0, 589831, 2, 0, 589832, 2, 0, 589833, 2, 0, 589834, 2, 0, 589835, 2, 0, 589836, 2, 0, 589837, 2, 0, 589838, 2, 0, 589839, 2, 0, 589840, 2, 0, 589841, 2, 0, 589842, 2, 0, 589843, 2, 0, 589844, 1, 0, 720895, 3, 0, 655360, 5, 0, 655361, 5, 0, 655362, 5, 0, 655363, 5, 0, 655364, 5, 0, 655365, 5, 0, 655366, 5, 0, 655367, 5, 0, 655368, 5, 0, 655369, 5, 0, 655370, 5, 0, 655371, 5, 0, 655372, 5, 0, 655373, 5, 0, 655374, 5, 0, 655375, 5, 0, 655376, 5, 0, 655377, 5, 0, 655378, 5, 0, 655379, 5, 0, 655380, 4, 0, 786431, 3, 0, 720896, 5, 0, 720897, 5, 0, 720898, 5, 0, 720899, 5, 0, 720900, 5, 0, 720901, 5, 0, 720902, 5, 0, 720903, 5, 0, 720904, 5, 0, 720905, 5, 0, 720906, 5, 0, 720907, 5, 0, 720908, 5, 0, 720909, 5, 0, 720910, 5, 0, 720911, 5, 0, 720912, 5, 0, 720913, 5, 0, 720914, 5, 0, 720915, 5, 0, 720916, 4, 0 )
+tile_data = PoolIntArray( 65535, 13, 0, 1, 14, 0, 4, 14, 0, 9, 14, 0, 17, 14, 0, 20, 13, 0, 65537, 14, 0, 65540, 14, 0, 131073, 14, 0, 131081, 14, 0, 262143, 13, 0, 196609, 14, 0, 196625, 14, 0, 196628, 13, 0, 262145, 14, 0, 262148, 14, 0, 327681, 14, 0, 327689, 14, 0, 458751, 13, 0, 393217, 14, 0, 393233, 14, 0, 393236, 13, 0, 458756, 14, 0, 524297, 14, 0, 524306, 24, 0, 524307, 24, 0, 655359, 0, 0, 589824, 2, 0, 589825, 2, 0, 589826, 2, 0, 589827, 2, 0, 589828, 2, 0, 589829, 2, 0, 589830, 2, 0, 589831, 2, 0, 589832, 2, 0, 589833, 2, 0, 589834, 2, 0, 589835, 2, 0, 589836, 2, 0, 589837, 2, 0, 589838, 2, 0, 589839, 2, 0, 589840, 2, 0, 589841, 2, 0, 589842, 2, 0, 589843, 2, 0, 589844, 1, 0, 720895, 3, 0, 655360, 5, 0, 655361, 5, 0, 655362, 5, 0, 655363, 5, 0, 655364, 5, 0, 655365, 5, 0, 655366, 5, 0, 655367, 5, 0, 655368, 5, 0, 655369, 5, 0, 655370, 5, 0, 655371, 5, 0, 655372, 5, 0, 655373, 5, 0, 655374, 5, 0, 655375, 5, 0, 655376, 5, 0, 655377, 5, 0, 655378, 5, 0, 655379, 5, 0, 655380, 4, 0, 786431, 3, 0, 720896, 5, 0, 720897, 5, 0, 720898, 5, 0, 720899, 5, 0, 720900, 5, 0, 720901, 5, 0, 720902, 5, 0, 720903, 5, 0, 720904, 5, 0, 720905, 5, 0, 720906, 5, 0, 720907, 5, 0, 720908, 5, 0, 720909, 5, 0, 720910, 5, 0, 720911, 5, 0, 720912, 5, 0, 720913, 5, 0, 720914, 5, 0, 720915, 5, 0, 720916, 4, 0 )
 
-[node name="Plyr_Cat" parent="." instance=ExtResource( 5 )]
-position = Vector2( 50, 128 )
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="Muzak" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 6 )
 autoplay = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/cutscene = SubResource( 1 )
+anims/Cutscene = SubResource( 1 )
+anims/RESET = SubResource( 2 )
+
+[node name="Kitty" type="Sprite" parent="."]
+position = Vector2( -33, 112 )
+texture = ExtResource( 5 )
+hframes = 11
+vframes = 2
+
+[node name="SFX_Plyr" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 9 )
+
+[node name="Node2D" type="Node2D" parent="."]
+z_index = 5
+
+[node name="ColorRect" type="ColorRect" parent="Node2D"]
+margin_left = -18.0
+margin_right = 335.0
+margin_bottom = 195.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="Scroll" type="Node2D" parent="."]
+z_index = 6
+
+[node name="Title" type="Label" parent="Scroll"]
+margin_top = 191.0
+margin_right = 320.0
+margin_bottom = 214.0
+theme = SubResource( 4 )
+text = "Phase"
+align = 1
+valign = 1
+
+[node name="Label" type="Label" parent="Scroll"]
+margin_left = 8.0
+margin_top = 260.0
+margin_right = 312.0
+margin_bottom = 3527.0
+theme = ExtResource( 10 )
+text = "Created by HillE
+ 
+
+Music and Sound by Trevor Dodd
+
+
+Additional coding by Devook
+
+
+Additional art pulled from itch.io
+Ansimuz // Vnitti
+
+
+Made for Pigsquad Stealth Slowjam 2022
+
+
+
+The End...
+
+
+
+
+press [esc] to restart"
+align = 1
+autowrap = true
+
+[editable path="CamP"]
+[editable path="Girl"]

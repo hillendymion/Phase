@@ -7,4 +7,6 @@ onready var hurtbox = $Hurtbox
 
 func _on_Hurtbox_body_entered(body: Node) -> void:
 	#collision with cat #hurts/kills cat.
-	pass #for now
+	print("ow")
+	if body == Plyr_Cat:
+		body.die()
