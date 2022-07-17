@@ -1,19 +1,18 @@
-extends KinematicBody2D
+extends KinematicSpriteBody 
 #doge. 
 #wanders slowly when idle
 #chases player/cat when in view
 #turns to stone when in light world
 
-var vel = Vector2.ZERO #motion
+onready var _player_raycast = $PlayerDetector
+onready var _ground_raycast = $GroundDetector
+
 var g_direction = Vector2.UP
-export var dir = 1 # -1 for the ther way.
-var spd = 80
-var tspeed = 420
+export var WANDER_SPEED = 80
+export var SEEK_SPEED = 160
 var accel = 200
 
-onready var sprite = $Sprite
 onready var hurtbox = $Hurtbox
-onready var caster = $RayCast2D
 onready var anim_player = $AnimationPlayer
 #for some reason preload pisses it off.
 var DogStatue = load("res://Objects/Enemies/ENE_DogeStatue.tscn")
@@ -35,30 +34,18 @@ func _ready() -> void:
 	
 
 func _physics_process(delta: float) -> void:
-	vel.y += GRAVITY
+	var state_after_update = _update_behavior_state()
+	if (state_after_update != state):
+		set_behavior(state_after_update)
+
 	match state:
 		WANDER:
-			Wander_State(delta)
+			_do_wander_behavior(delta)
 		SEEK:
-			Seek_State(delta) #pause, I guess.
-			
-func Wander_State(delta):
-	#wanders slowly back and forth.
-	anim_player.play("Idle")
-	
-	if vel.x > 0:
-		sprite.flip_h
-	vel.x = spd*dir
-	move(delta)
-func Seek_State(delta):
-	#if spots cat (via raycast), will chase it.
-	if caster.find_node(Plyr_Cat):
-		#vel = tspeed
-		anim_player.play("Run")
-	move(delta)
+			_do_seek_behavior(delta)
 
-func move(delta):
-	vel = move_and_slide(vel, g_direction)
+	move_and_collide(velocity * delta)
+
 
 func PhaseForm():
 	#this isn't loading right. may have to try a new tactic.
@@ -77,3 +64,52 @@ func _on_TopBouncer_body_entered(body: Node) -> void:
 	spd = 0 # Replace with function body. stun it for a second.
 	print("boing")
 	#set_collision_layer_bit(5,false)
+	
+
+func set_behavior(new_state):
+	print("%s changing state to %s" % [name, new_state])
+	# TODO? Confirm valid state transition?
+	# TODO? Put signals here?
+	state = new_state
+
+				
+func _do_wander_behavior(delta):
+	#wanders slowly back and forth.
+	anim_player.play("Idle")
+	# TODO: Accelerate and clamp
+	# TODO: Turn around at edges
+	if (_ground_raycast.is_colliding()):
+		_set_velocity(WANDER_SPEED * forward_vector)
+	else:
+		_set_velocity(-WANDER_SPEED * forward_vector)
+
+
+func _do_seek_behavior(delta):
+	#if spots cat (via raycast), will chase it.
+	anim_player.play("Run")
+	if (_ground_raycast.is_colliding()):
+		_set_velocity(SEEK_SPEED * forward_vector)
+	else:
+		_set_velocity(Vector2.ZERO)
+	# TODO: Accelerate and clamp
+	
+
+
+func _update_behavior_state() -> int:
+	match state:
+		WANDER:
+			if (_should_start_seek()):
+				return SEEK
+		SEEK:
+			if (_should_stop_seek()):
+				return WANDER
+	return state
+
+
+func _should_start_seek() -> bool:
+	return _player_raycast.is_colliding()
+
+
+func _should_stop_seek() -> bool:
+	# TODO: Replace with cooldown when player is out of sight or unreachable
+	return _player_raycast.is_colliding()

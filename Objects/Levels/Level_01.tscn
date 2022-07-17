@@ -82,6 +82,7 @@ collision_layer = 2
 z_index = 11
 z_as_relative = false
 tile_set = ExtResource( 18 )
+show_collision = true
 collision_use_parent = true
 tile_data = PoolIntArray( 458768, 0, 0, 458814, 3, 0, 524299, 4, 0, 524350, 3, 0, 524351, 4, 0, 524365, 0, 0 )
 
@@ -106,6 +107,7 @@ collision_layer = 2
 z_index = 11
 z_as_relative = false
 tile_set = ExtResource( 18 )
+show_collision = true
 collision_use_parent = true
 tile_data = PoolIntArray( 196678, 0, 0, 262213, 1, 0, 262215, 3, 0, 327750, 2, 0, 524299, 4, 0, 524327, 0, 0, 524328, 0, 0, 524351, 4, 0 )
 

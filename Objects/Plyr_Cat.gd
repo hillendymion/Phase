@@ -77,7 +77,8 @@ func Move_State(delta):
 				#print("walking spd: ",vel.x)
 		else:
 			vel.x = x_Input * ACCEL/2 * WALK_SPD * AIR_RES* delta
-	else:
+	# If no movement input but still in air, don't change the animation yet
+	elif (is_on_floor()):
 		anim_player.play("StopL")
 	#	AnimationState.travel("Idles")
 
@@ -125,6 +126,7 @@ func Move_State(delta):
 	#reset level
 	if Input.is_action_just_released("ui_end"):
 		pass
+		
 func move(delta):
 	vel = move_and_slide(vel, g_direction) 
 	#second parameter tells it which way is up. This looks like an easy way to reverse gravity.	

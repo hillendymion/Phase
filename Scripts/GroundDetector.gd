@@ -1,0 +1,2 @@
+class_name GroundDetector
+extends RayCast2D

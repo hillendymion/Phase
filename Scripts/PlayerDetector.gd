@@ -1,0 +1,2 @@
+class_name PlayerDetector
+extends RayCast2D
