@@ -14,7 +14,7 @@ onready var sprite = $Sprite
 onready var hurtbox = $Hurtbox
 onready var caster = $RayCast2D
 onready var anim_player = $AnimationPlayer
-var DogStatue = preload("res://Objects/Enemies/ENE_DogeStatue.tscn")
+var DogStatue = load("res://Objects/Enemies/ENE_DogeStatue.tscn")
 #give it 2 modes. wander, chase.
 #raycast looks for player. chases player when intersected.
 var GRAVITY = GlobalVars.GRAVITY

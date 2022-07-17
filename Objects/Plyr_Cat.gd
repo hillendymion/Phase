@@ -29,7 +29,7 @@ onready var SFXPhaseBlack = $SFX_Phase_Black
 onready var SFXPhaseWhite = $SFX_Phase_White
 #onready var gun = sprite.get_node(@"Gun")
 
-
+var catdie = preload("res://Objects/CatDie.tscn")
 
 #don't need one for IDLE, thats just in move.
 enum {
@@ -149,17 +149,20 @@ func _on_Hurtbox_area_shape_entered(area_rid: RID, area: Area2D, area_shape_inde
 
 func die():
 		#not connecting?
-		#
-	var level = GlobalVars.get_Level()
-	print(level)
-	if level == 1:
-		get_tree().change_scene("res://Objects/Levels/Level_01.tscn")
-	elif level == 2:
-		get_tree().change_scene("res://Objects/Levels/Level_02.tscn")
-	elif level == 3:
-		get_tree().change_scene("res://Objects/Levels/Level_03.tscn")
-	else:
-		get_tree().change_scene("res://Objects/Levels/Level_01.tscn")
+	var die = catdie.instance()
+	get_parent().add_child(die)
+	die.position = self.global_position
+	queue_free()
+	#var level = GlobalVars.get_Level()
+	#print(level)
+	#if level == 1:
+	#	get_tree().change_scene("res://Objects/Levels/Level_01.tscn")
+	#elif level == 2:
+	#	get_tree().change_scene("res://Objects/Levels/Level_02.tscn")
+	#elif level == 3:
+	#	get_tree().change_scene("res://Objects/Levels/Level_03.tscn")
+	#else:
+	#	get_tree().change_scene("res://Objects/Levels/Level_01.tscn")
 
 
 
