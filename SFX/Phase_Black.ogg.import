@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Phase_Black.ogg-b4bb6eec3edbb11d308bac2ac9a2b3da.oggstr"
+
+[deps]
+
+source_file="res://SFX/Phase_Black.ogg"
+dest_files=[ "res://.import/Phase_Black.ogg-b4bb6eec3edbb11d308bac2ac9a2b3da.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

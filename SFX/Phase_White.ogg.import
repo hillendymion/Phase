@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Phase_White.ogg-df3e792d75646264269f5da3e0330ea0.oggstr"
+
+[deps]
+
+source_file="res://SFX/Phase_White.ogg"
+dest_files=[ "res://.import/Phase_White.ogg-df3e792d75646264269f5da3e0330ea0.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
