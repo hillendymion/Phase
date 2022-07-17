@@ -62,11 +62,11 @@ func move(delta):
 
 func PhaseForm():
 	#this isn't loading right. may have to try a new tactic.
-	var statue = DogStatue.instance()
-	get_parent().add_child(statue)
-	statue.position = self.global_position
-	queue_free()
-
+	#var statue = DogStatue.instance()
+	#get_parent().add_child(statue)
+	#statue.position = self.global_position
+	#queue_free()
+	pass
 
 func _on_Hurtbox_body_entered(body: Node) -> void:
 	#player colldes with this other.die
