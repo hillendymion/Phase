@@ -1,0 +1,38 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Objects/UI/ManaFont.tres" type="Theme" id=1]
+[ext_resource path="res://ART/UI/Phase_Meter_01.png" type="Texture" id=2]
+[ext_resource path="res://Objects/UI/UI.gd" type="Script" id=3]
+
+[node name="UI" type="CanvasLayer"]
+
+[node name="Control" type="Control" parent="."]
+margin_right = 312.0
+margin_bottom = 22.0
+script = ExtResource( 3 )
+
+[node name="PTimer" type="Timer" parent="Control"]
+wait_time = 48.0
+autostart = true
+
+[node name="Label" type="Label" parent="Control"]
+visible = false
+margin_left = 58.0
+margin_top = 5.0
+margin_right = 135.0
+margin_bottom = 18.0
+theme = ExtResource( 1 )
+text = "phase"
+
+[node name="PhaseMeter01" type="Sprite" parent="Control"]
+visible = false
+position = Vector2( 8, 4 )
+texture = ExtResource( 2 )
+centered = false
+
+[node name="Fill" type="ColorRect" parent="Control/PhaseMeter01"]
+visible = false
+margin_left = 2.0
+margin_top = 5.0
+margin_right = 46.0
+margin_bottom = 10.0

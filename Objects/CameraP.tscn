@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Scripts/CameraP.gd" type="Script" id=1]
+
+[node name="CamP" type="Camera2D"]
+position = Vector2( 129, 112 )
+z_index = -1
+offset_h = 1.0
+script = ExtResource( 1 )
+
+[node name="BottomRight" type="Position2D" parent="."]
+position = Vector2( 302, 120 )
+
+[node name="TopLeft" type="Position2D" parent="."]
+position = Vector2( -131, -114 )

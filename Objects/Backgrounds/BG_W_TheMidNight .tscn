@@ -1,0 +1,113 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://ART/BGS/TheMidnight_Land 2-BW2.png" type="Texture" id=1]
+[ext_resource path="res://ART/BGS/TheMidnight_Trees_BW2.png" type="Texture" id=2]
+[ext_resource path="res://ART/BGS/glacial_mountains_BW6-Vicente Nitti.png" type="Texture" id=3]
+[ext_resource path="res://Scripts/BG_Change .gd" type="Script" id=4]
+[ext_resource path="res://ART/BGS/TheMidnight_Land 2-BW.png" type="Texture" id=5]
+[ext_resource path="res://ART/BGS/TheMidnight_Trees_BW.png" type="Texture" id=6]
+[ext_resource path="res://ART/BGS/glacial_mountains_BW5-Vicente Nitti.png" type="Texture" id=7]
+
+[node name="BG" type="ParallaxBackground"]
+script = ExtResource( 4 )
+
+[node name="BGRect" type="ColorRect" parent="."]
+margin_right = 321.0
+margin_bottom = 179.0
+color = Color( 0.572549, 0.572549, 0.572549, 1 )
+
+[node name="back_LL" type="ParallaxLayer" parent="."]
+motion_scale = Vector2( 0.1, 1 )
+
+[node name="back1" type="Sprite" parent="back_LL"]
+position = Vector2( 0, -32 )
+z_index = -30
+z_as_relative = false
+texture = ExtResource( 3 )
+centered = false
+
+[node name="Mid_LL" type="ParallaxLayer" parent="."]
+motion_scale = Vector2( 0.2, 1 )
+motion_mirroring = Vector2( 512, 0 )
+
+[node name="mid1" type="Sprite" parent="Mid_LL"]
+z_index = -20
+z_as_relative = false
+texture = ExtResource( 2 )
+centered = false
+
+[node name="mid2" type="Sprite" parent="Mid_LL/mid1"]
+position = Vector2( 256, 0 )
+z_index = -20
+z_as_relative = false
+texture = ExtResource( 2 )
+centered = false
+
+[node name="Front_LL" type="ParallaxLayer" parent="."]
+motion_scale = Vector2( 0.4, 1 )
+motion_mirroring = Vector2( 512, 0 )
+
+[node name="f1" type="Sprite" parent="Front_LL"]
+z_index = -10
+z_as_relative = false
+texture = ExtResource( 1 )
+centered = false
+
+[node name="f2" type="Sprite" parent="Front_LL/f1"]
+position = Vector2( 256, 0 )
+z_index = -10
+z_as_relative = false
+texture = ExtResource( 1 )
+centered = false
+
+[node name="Back_DL" type="ParallaxLayer" parent="."]
+visible = false
+motion_scale = Vector2( 0.1, 1 )
+motion_mirroring = Vector2( 320, 0 )
+
+[node name="back1" type="Sprite" parent="Back_DL"]
+position = Vector2( 0, -32 )
+z_index = -30
+z_as_relative = false
+texture = ExtResource( 7 )
+centered = false
+
+[node name="Mid_DL" type="ParallaxLayer" parent="."]
+visible = false
+motion_scale = Vector2( 0.2, 1 )
+motion_mirroring = Vector2( 256, 0 )
+
+[node name="mid1" type="Sprite" parent="Mid_DL"]
+z_index = -20
+z_as_relative = false
+texture = ExtResource( 6 )
+centered = false
+offset = Vector2( 0, -16 )
+
+[node name="mid2" type="Sprite" parent="Mid_DL/mid1"]
+position = Vector2( 256, 0 )
+z_index = -20
+z_as_relative = false
+texture = ExtResource( 6 )
+centered = false
+offset = Vector2( 0, -16 )
+
+[node name="Front_DL" type="ParallaxLayer" parent="."]
+visible = false
+motion_scale = Vector2( 0.4, 1 )
+motion_mirroring = Vector2( 256, 0 )
+
+[node name="f1" type="Sprite" parent="Front_DL"]
+z_index = -10
+z_as_relative = false
+texture = ExtResource( 5 )
+centered = false
+offset = Vector2( 0, -16 )
+
+[node name="f2" type="Sprite" parent="Front_DL"]
+position = Vector2( 256, 0 )
+z_index = -10
+z_as_relative = false
+texture = ExtResource( 5 )
+centered = false
+offset = Vector2( 0, -16 )

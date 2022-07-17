@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://ART/BGS/TheMidnight_Land 2-BW.png" type="Texture" id=1]
+[ext_resource path="res://ART/BGS/glacial_mountains_BW5-Vicente Nitti.png" type="Texture" id=2]
+[ext_resource path="res://ART/BGS/TheMidnight_Trees_BW.png" type="Texture" id=3]
+
+[node name="BG" type="Node"]
+
+[node name="GlacialMountainsBw5-VicenteNitti" type="Sprite" parent="."]
+position = Vector2( 229, 78 )
+scale = Vector2( 2, 2 )
+z_index = -10
+texture = ExtResource( 2 )
+
+[node name="TheMidnightTreesBw" type="Sprite" parent="."]
+position = Vector2( 169, 32 )
+scale = Vector2( 2, 2 )
+z_index = -9
+texture = ExtResource( 3 )
+
+[node name="TheMidnightLand2-Bw" type="Sprite" parent="."]
+position = Vector2( 166, 46 )
+scale = Vector2( 2, 2 )
+z_index = -8
+texture = ExtResource( 1 )

@@ -1,0 +1,44 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Objects/TileMap1.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Objects/CameraP.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Objects/Backgrounds/BG_W_TheMidNight .tscn" type="PackedScene" id=3]
+[ext_resource path="res://Objects/Girl.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Objects/Plyr_Cat.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Music/Cats_Cradle.mp3" type="AudioStream" id=6]
+[ext_resource path="res://Scripts/Cutscene_Intro.gd" type="Script" id=7]
+
+[sub_resource type="Animation" id=1]
+resource_name = "cutscene"
+
+[node name="Level4" type="Node2D"]
+script = ExtResource( 7 )
+scene_ch = "res://Objects/UI/Title.tscn"
+
+[node name="BG" parent="." instance=ExtResource( 3 )]
+
+[node name="CamP" parent="." instance=ExtResource( 2 )]
+limit_left = 0
+limit_top = 0
+limit_right = 320
+limit_bottom = 180
+
+[node name="Girl" parent="." instance=ExtResource( 4 )]
+position = Vector2( 230, 144 )
+collision_layer = 2
+collision_mask = 4
+
+[node name="TileMap" parent="." instance=ExtResource( 1 )]
+collision_layer = 2
+collision_mask = 4
+tile_data = PoolIntArray( 65535, 13, 0, 1, 14, 0, 17, 14, 0, 20, 13, 0, 65537, 14, 0, 65540, 14, 0, 131073, 14, 0, 131081, 14, 0, 262143, 13, 0, 196609, 14, 0, 196625, 14, 0, 196628, 13, 0, 262145, 14, 0, 262148, 14, 0, 327681, 14, 0, 327689, 14, 0, 458751, 13, 0, 393217, 14, 0, 393233, 14, 0, 393236, 13, 0, 458756, 14, 0, 524297, 14, 0, 655359, 0, 0, 589824, 2, 0, 589825, 2, 0, 589826, 2, 0, 589827, 2, 0, 589828, 2, 0, 589829, 2, 0, 589830, 2, 0, 589831, 2, 0, 589832, 2, 0, 589833, 2, 0, 589834, 2, 0, 589835, 2, 0, 589836, 2, 0, 589837, 2, 0, 589838, 2, 0, 589839, 2, 0, 589840, 2, 0, 589841, 2, 0, 589842, 2, 0, 589843, 2, 0, 589844, 1, 0, 720895, 3, 0, 655360, 5, 0, 655361, 5, 0, 655362, 5, 0, 655363, 5, 0, 655364, 5, 0, 655365, 5, 0, 655366, 5, 0, 655367, 5, 0, 655368, 5, 0, 655369, 5, 0, 655370, 5, 0, 655371, 5, 0, 655372, 5, 0, 655373, 5, 0, 655374, 5, 0, 655375, 5, 0, 655376, 5, 0, 655377, 5, 0, 655378, 5, 0, 655379, 5, 0, 655380, 4, 0, 786431, 3, 0, 720896, 5, 0, 720897, 5, 0, 720898, 5, 0, 720899, 5, 0, 720900, 5, 0, 720901, 5, 0, 720902, 5, 0, 720903, 5, 0, 720904, 5, 0, 720905, 5, 0, 720906, 5, 0, 720907, 5, 0, 720908, 5, 0, 720909, 5, 0, 720910, 5, 0, 720911, 5, 0, 720912, 5, 0, 720913, 5, 0, 720914, 5, 0, 720915, 5, 0, 720916, 4, 0 )
+
+[node name="Plyr_Cat" parent="." instance=ExtResource( 5 )]
+position = Vector2( 50, 128 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+autoplay = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/cutscene = SubResource( 1 )

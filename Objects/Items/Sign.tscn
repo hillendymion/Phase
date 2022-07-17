@@ -1,0 +1,57 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://ART/Sprites/PHASE_8x8_Spike-Sheet.png" type="Texture" id=1]
+[ext_resource path="res://Scripts/Obj_Sign.gd" type="Script" id=2]
+[ext_resource path="res://Objects/UI/ManaFont.tres" type="Theme" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 7, 7 )
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 15.0
+
+[node name="StaticBody2D" type="StaticBody2D"]
+collision_layer = 2
+collision_mask = 4
+script = ExtResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+hframes = 4
+vframes = 2
+frame = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2( 0, 2 )
+shape = SubResource( 1 )
+disabled = true
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+margin_left = -87.0
+margin_top = -74.0
+margin_right = 87.0
+margin_bottom = -34.0
+color = Color( 0.431373, 0.431373, 0.431373, 0.470588 )
+
+[node name="Label" type="Label" parent="ColorRect"]
+margin_left = 2.0
+margin_top = 1.0
+margin_right = 111.0
+margin_bottom = 22.0
+theme = ExtResource( 3 )
+text = "This is text"
+align = 1
+autowrap = true
+
+[node name="Area2D" type="Area2D" parent="."]
+visible = false
+collision_layer = 2
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource( 2 )
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_Area2D_body_exited"]
