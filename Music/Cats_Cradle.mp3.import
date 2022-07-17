@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Cats_Cradle.mp3-5595324fac1eee143012097fbedd1bbf.mp3str"
+
+[deps]
+
+source_file="res://Music/Cats_Cradle.mp3"
+dest_files=[ "res://.import/Cats_Cradle.mp3-5595324fac1eee143012097fbedd1bbf.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
