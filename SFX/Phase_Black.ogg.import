@@ -11,5 +11,5 @@ dest_files=[ "res://.import/Phase_Black.ogg-b4bb6eec3edbb11d308bac2ac9a2b3da.ogg
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

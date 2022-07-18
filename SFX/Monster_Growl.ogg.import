@@ -11,5 +11,5 @@ dest_files=[ "res://.import/Monster_Growl.ogg-229131186c98cb16f6d07ef79a6e81fd.o
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

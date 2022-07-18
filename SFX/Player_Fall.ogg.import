@@ -11,5 +11,5 @@ dest_files=[ "res://.import/Player_Fall.ogg-34504aad442a2868a6610926791d30e2.ogg
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0
