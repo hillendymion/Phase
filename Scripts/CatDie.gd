@@ -12,6 +12,7 @@ func _ready() -> void:
 func _on_AnimationPlayer_animation_finished(anim_name: String) -> void:
 	#not connecting?
 	var level = GlobalVars.get_Level()
+	GlobalVars.hp = 1
 	print(level)
 	if level == 1:
 		get_tree().change_scene("res://Objects/Levels/Level_01.tscn")

@@ -4,11 +4,13 @@ extends Node2D
 var phase = true setget changePhase, get_Phase
 var GRAVITY = 256
 var CurrentLevel = 1 setget set_Level, get_Level
-
+#screw it, this seems like the best way.
+var hp = 1 setget hp_change, get_hp
 
 signal change_Phase
 signal phase_Dark
 signal phase_Light
+signal catdie
 
 func changePhase(val):
 	#val is the value of 'phase' passed through this thing.
@@ -22,6 +24,7 @@ func changePhase(val):
 		emit_signal("change_Phase")
 
 
+
 func get_Phase():
 	return phase
 	
@@ -29,3 +32,11 @@ func set_Level(val):
 	CurrentLevel = val	
 func get_Level():
 	return CurrentLevel
+
+func hp_change(val):
+	val = hp
+	if hp <= 0:
+		emit_signal("catdie")
+	
+func get_hp():
+	return hp
