@@ -105,10 +105,12 @@ func Move_State(delta):
 			anim_player.play("JumpL")
 			#better jump control.
 			print("jump")
-		if x_Input == 0:
+		elif x_Input == 0:
 			vel.x = lerp(vel.x, 0, AIR_RES)
 			#anim_player.play("FallL")
-
+		elif x_Input !=0 and vel.y > 0:
+			vel.x = lerp(vel.x, 0, AIR_RES)
+			anim_player.play("FallL")
 	move(delta)
 	#phase command.
 	if Input.is_action_just_released("ui_phase"):
