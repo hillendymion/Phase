@@ -8,11 +8,11 @@ onready var _player_raycast = $PlayerDetector
 onready var _ground_raycast = $GroundDetector
 
 var g_direction = Vector2.UP
-export var WANDER_SPEED = 80
-export var SEEK_SPEED = 160
-export var SEEK_COOLDOWN = 3
-var accel = 200
-var seek_time_remaining = 0
+export var WANDER_SPEED = 80.0
+export var SEEK_SPEED = 160.0
+export var SEEK_COOLDOWN = 3.0
+var accel = 200.0
+var seek_time_remaining = 0.0
 
 onready var hurtbox = $Hurtbox
 onready var anim_player = $AnimationPlayer
