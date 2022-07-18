@@ -83,7 +83,7 @@ func _transition_to(behavior_state):
 			_target = _get_next_patrol_target()
 			_target_speed = PATROL_SPEED
 			_acceleration_limit = 0.0
-	print("%s changing state to %s - moving to %s" % [name, behavior_state, _target])
+	#print("%s changing state to %s - moving to %s" % [name, behavior_state, _target])
 	
 
 
@@ -105,7 +105,7 @@ func _compute_acceleration(delta: float) -> Vector2:
 
 
 func _get_next_patrol_target() -> Vector2:
-	print("%s finished patrol to %s" % [name, _target])
+	#print("%s finished patrol to %s" % [name, _target])
 	if (_patrolling_forward):
 		if (FLY_HORIZONTAL):
 			return _initial_position + Vector2.RIGHT * PATROL_DISTANCE

@@ -67,7 +67,6 @@ tracks/0/keys = {
 collision_layer = 16
 collision_mask = 22
 script = ExtResource( 2 )
-SEEK_COOLDOWN = 2
 
 [node name="Hurtbox" parent="." instance=ExtResource( 6 )]
 

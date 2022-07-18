@@ -6,7 +6,11 @@ extends KinematicSpriteBody
 
 onready var _player_raycast = $PlayerDetector
 onready var _ground_raycast = $GroundDetector
+onready var hurtbox = $Hurtbox
+onready var anim_player = $AnimationPlayer
+onready var rawr = $AudioStreamPlayer
 
+var rawrcheck = 0
 var g_direction = Vector2.UP
 export var WANDER_SPEED = 80.0
 export var SEEK_SPEED = 160.0
@@ -14,8 +18,7 @@ export var SEEK_COOLDOWN = 3.0
 var accel = 200.0
 var seek_time_remaining = 0.0
 
-onready var hurtbox = $Hurtbox
-onready var anim_player = $AnimationPlayer
+
 #for some reason preload pisses it off.
 var DogStatue = load("res://Objects/Enemies/ENE_DogeStatue.tscn")
 #give it 2 modes. wander, chase.
@@ -78,6 +81,7 @@ func _can_move_forward(direction: Vector2) -> bool:
 func _do_wander_behavior(delta):
 	#wanders slowly back and forth.
 	anim_player.play("Idle")
+	rawrcheck = 0
 	# TODO: Accelerate and clamp
 	# TODO: Turn around at edges
 	var move_vector = WANDER_SPEED * forward_vector
@@ -90,6 +94,9 @@ func _do_wander_behavior(delta):
 func _do_seek_behavior(delta):
 	#if spots cat (via raycast), will chase it.
 	anim_player.play("Run")
+	if rawrcheck == 0:
+		rawr.play()
+		rawrcheck = 1
 	var move_vector = SEEK_SPEED * forward_vector
 	var can_move = _can_move_forward(move_vector * delta)
 	if (_player_raycast.player_detected() && can_move):
