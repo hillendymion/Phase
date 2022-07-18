@@ -1,0 +1,35 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Objects/UI/ManaFont.tres" type="Theme" id=1]
+[ext_resource path="res://Scripts/Pause.gd" type="Script" id=2]
+[ext_resource path="res://SFX/Player_Fall.ogg" type="AudioStream" id=3]
+
+[node name="Pause" type="Node2D"]
+pause_mode = 2
+script = ExtResource( 2 )
+
+[node name="Control" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Control"]
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+margin_left = 86.0
+margin_top = 66.0
+margin_right = 234.0
+margin_bottom = 106.0
+color = Color( 0, 0, 0, 0.560784 )
+
+[node name="Label" type="Label" parent="Control/ColorRect"]
+margin_left = 52.0
+margin_top = 14.0
+margin_right = 93.0
+margin_bottom = 28.0
+theme = ExtResource( 1 )
+text = "PAUSE"
+align = 1
+valign = 1
+
+[node name="Astream" type="AudioStreamPlayer" parent="Control"]
+stream = ExtResource( 3 )

@@ -51,7 +51,7 @@ func _on_Hurtbox_body_entered(body: Node) -> void:
 	#collision with cat #hurts/kills cat.
 	print("ow")
 	if body == Plyr_Cat:
-		body.die()
+		body.die() #doesn't quite work.
 
 func _update_behavior_state() -> int:
 	match _behavior_state:

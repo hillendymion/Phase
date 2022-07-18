@@ -1,6 +1,6 @@
 extends Control
 
-
+var pauser = preload("res://Objects/UI/Pause.tscn") #debating putting this in the ui instead.
 onready var Pmeter = $PhaseMeter01/Fill
 onready var Ptimer = $PTimer
 var PhaseReady = false
@@ -13,3 +13,9 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	Pmeter.margin_right = Ptimer.wait_time
 	#print("timer: ",Ptimer.wait_time)
+		#pause
+	if Input.is_action_just_released("ui_pause"):
+		#var pause = pauser.instance()
+		#get_parent().add_child(pauser)
+		pass
+		

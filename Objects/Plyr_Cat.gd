@@ -148,13 +148,6 @@ func _on_Spikes_body_entered(body: Node) -> void:
 
 
 
-func _on_Hurtbox_body_entered(body: Node) -> void:
-	#this one connects to spikes and enemies.
-	print("I farted")
-	if get_collision_layer_bit(4) == true:
-		#learn how groups are made.
-		#enemy ollision layer bit.
-		die()
 
 func die():
 		#not connecting?
@@ -173,3 +166,18 @@ func die():
 	#else:
 	#	get_tree().change_scene("res://Objects/Levels/Level_01.tscn")
 
+
+
+func _on_Hurtbox_area_entered(area: Area2D) -> void:
+	#this one connects to spikes and enemies.
+	print("bonked by enemy")
+	die()
+	#probably don't need the HP, but its future proofing for health.
+	#var dam = area.get("damage")
+	#if dam != null:
+	#	GlobalVars.hp -= area.damage
+	#	if GlobalVars.hp <= 0:
+	#		die()
+		#learn how groups are made.
+		#enemy ollision layer bit.
+		#GlobalVars.HP -=1 #may try this if this other method doesn't work.

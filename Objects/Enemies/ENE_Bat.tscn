@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Objects/Enemies/ENE_Bat.gd" type="Script" id=1]
 [ext_resource path="res://ART/Sprites/ENE_GiantBat_S.png" type="Texture" id=2]
 [ext_resource path="res://Scripts/PlayerDetector.gd" type="Script" id=3]
+[ext_resource path="res://Objects/Enemies/Hurtbox.tscn" type="PackedScene" id=4]
 
 [sub_resource type="AtlasTexture" id=3]
 atlas = ExtResource( 2 )
@@ -28,8 +29,8 @@ animations = [ {
 radius = 3.0
 height = 0.0
 
-[sub_resource type="CircleShape2D" id=2]
-radius = 5.0
+[sub_resource type="CircleShape2D" id=7]
+radius = 4.12311
 
 [node name="ENE_Bat" type="KinematicBody2D"]
 collision_layer = 0
@@ -45,6 +46,7 @@ RESET_ACCEL = 300.0
 [node name="Sprite" type="AnimatedSprite" parent="." groups=["Enemy"]]
 frames = SubResource( 6 )
 animation = "Flap"
+frame = 2
 speed_scale = 1.5
 playing = true
 
@@ -52,13 +54,10 @@ playing = true
 shape = SubResource( 1 )
 disabled = true
 
-[node name="Hurtbox" type="Area2D" parent="." groups=["Enemy"]]
-collision_layer = 16
-collision_mask = 4
+[node name="Hurtbox" parent="." instance=ExtResource( 4 )]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
-modulate = Color( 0.823529, 0.333333, 0.333333, 1 )
-shape = SubResource( 2 )
+shape = SubResource( 7 )
 
 [node name="PlayerDetectorLeft" type="RayCast2D" parent="."]
 rotation = 0.523599
@@ -79,4 +78,4 @@ enabled = true
 collision_mask = 4
 script = ExtResource( 3 )
 
-[connection signal="body_entered" from="Hurtbox" to="." method="_on_Hurtbox_body_entered"]
+[editable path="Hurtbox"]

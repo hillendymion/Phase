@@ -50,12 +50,17 @@ collision_mask = 4
 toLevel = 3
 
 [node name="ENE_Bat" parent="DarkHandler" instance=ExtResource( 13 )]
-position = Vector2( 1570, 83 )
+position = Vector2( 1508, 52 )
+collision_layer = 16
+collision_mask = 4
+
+[node name="ENE_Bat3" parent="DarkHandler" instance=ExtResource( 13 )]
+position = Vector2( 1329, 117 )
 collision_layer = 16
 collision_mask = 4
 
 [node name="ENE_Bat2" parent="DarkHandler" instance=ExtResource( 13 )]
-position = Vector2( 1846, 62 )
+position = Vector2( 1837, 14 )
 collision_layer = 16
 collision_mask = 4
 
@@ -65,6 +70,10 @@ collision_mask = 6
 
 [node name="ENE_Doge2" parent="DarkHandler" instance=ExtResource( 16 )]
 position = Vector2( 318, 161 )
+collision_mask = 6
+
+[node name="ENE_Doge3" parent="DarkHandler" instance=ExtResource( 16 )]
+position = Vector2( 1066, 110 )
 collision_mask = 6
 
 [node name="LightHandler" type="Node2D" parent="."]
@@ -143,7 +152,7 @@ position = Vector2( 529, 2 )
 [node name="DeathPit2" parent="." instance=ExtResource( 7 )]
 position = Vector2( 1083, 240 )
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 4 )
 autoplay = true
 
@@ -158,14 +167,27 @@ collision_layer = 16
 collision_mask = 4
 
 [node name="ENE_Bat" parent="." instance=ExtResource( 13 )]
-position = Vector2( 455, 110 )
+position = Vector2( 430, 81 )
+collision_layer = 16
+collision_mask = 4
+PATROL_DISTANCE = 200.0
+
+[node name="ENE_Bat2" parent="." instance=ExtResource( 13 )]
+position = Vector2( 849, 78 )
 collision_layer = 16
 collision_mask = 4
 
-[node name="ENE_Bat2" parent="." instance=ExtResource( 13 )]
-position = Vector2( 935, 91 )
+[node name="ENE_Bat3" parent="." instance=ExtResource( 13 )]
+position = Vector2( 639, 52 )
 collision_layer = 16
 collision_mask = 4
+PATROL_DISTANCE = 150.0
+
+[node name="ENE_Bat4" parent="." instance=ExtResource( 13 )]
+position = Vector2( 1624, 55 )
+collision_layer = 16
+collision_mask = 4
+PATROL_DISTANCE = 120.0
 
 [connection signal="body_entered" from="LightHandler/L_Spikes" to="Plyr_Cat" method="_on_Spikes_body_entered"]
 [connection signal="body_entered" from="DeathPit" to="Plyr_Cat" method="_on_DeathPit_body_entered"]

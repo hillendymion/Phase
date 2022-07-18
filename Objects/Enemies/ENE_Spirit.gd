@@ -8,7 +8,8 @@ var vel = Vector2.ZERO
 var accel = 400
 var topspeed = 400
 var AIR_RES = .20
-
+onready var _player_raycasts = [
+	$PlayerDetectorLeft, $PlayerDetectorRight, $PlayerDetectorCenter]
 onready var anim_player = $AnimationPlayer
 onready var growl = $MonGrowl
 
