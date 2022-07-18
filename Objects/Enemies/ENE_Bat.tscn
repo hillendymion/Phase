@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Objects/Enemies/ENE_Bat.gd" type="Script" id=1]
 [ext_resource path="res://ART/Sprites/ENE_GiantBat_S.png" type="Texture" id=2]
+[ext_resource path="res://Scripts/PlayerDetector.gd" type="Script" id=3]
 
 [sub_resource type="AtlasTexture" id=3]
 atlas = ExtResource( 2 )
@@ -34,6 +35,12 @@ radius = 5.0
 collision_layer = 0
 collision_mask = 0
 script = ExtResource( 1 )
+PATROL_DISTANCE = 100.0
+PATROL_SPEED = 90.0
+ATTACK_SPEED = 250.0
+ATTACK_ACCEL = 750.0
+RESET_SPEED = 100.0
+RESET_ACCEL = 300.0
 
 [node name="Sprite" type="AnimatedSprite" parent="." groups=["Enemy"]]
 frames = SubResource( 6 )
@@ -43,6 +50,7 @@ playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
+disabled = true
 
 [node name="Hurtbox" type="Area2D" parent="." groups=["Enemy"]]
 collision_layer = 16
@@ -51,5 +59,24 @@ collision_mask = 4
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
 modulate = Color( 0.823529, 0.333333, 0.333333, 1 )
 shape = SubResource( 2 )
+
+[node name="PlayerDetectorLeft" type="RayCast2D" parent="."]
+rotation = 0.523599
+enabled = true
+cast_to = Vector2( 0, 55 )
+collision_mask = 4
+script = ExtResource( 3 )
+
+[node name="PlayerDetectorRight" type="RayCast2D" parent="."]
+rotation = -0.523599
+enabled = true
+cast_to = Vector2( 0, 55 )
+collision_mask = 4
+script = ExtResource( 3 )
+
+[node name="PlayerDetectorCenter" type="RayCast2D" parent="."]
+enabled = true
+collision_mask = 4
+script = ExtResource( 3 )
 
 [connection signal="body_entered" from="Hurtbox" to="." method="_on_Hurtbox_body_entered"]
