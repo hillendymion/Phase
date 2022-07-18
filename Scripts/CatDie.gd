@@ -21,3 +21,4 @@ func _on_AnimationPlayer_animation_finished(anim_name: String) -> void:
 		get_tree().change_scene("res://Objects/Levels/Level_03.tscn")
 	else:
 		get_tree().change_scene("res://Objects/Levels/Level_01.tscn")
+	queue_free()

@@ -9,12 +9,30 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "RayCast2D",
+"class": "GroundDetector",
+"language": "GDScript",
+"path": "res://Scripts/GroundDetector.gd"
+}, {
+"base": "KinematicBody2D",
+"class": "KinematicSpriteBody",
+"language": "GDScript",
+"path": "res://Scripts/KinematicSpriteBody.gd"
+}, {
+"base": "RayCast2D",
+"class": "PlayerDetector",
+"language": "GDScript",
+"path": "res://Scripts/PlayerDetector.gd"
+}, {
 "base": "KinematicBody2D",
 "class": "Plyr_Cat",
 "language": "GDScript",
 "path": "res://Objects/Plyr_Cat.gd"
 } ]
 _global_script_class_icons={
+"GroundDetector": "",
+"KinematicSpriteBody": "",
+"PlayerDetector": "",
 "Plyr_Cat": ""
 }
 
