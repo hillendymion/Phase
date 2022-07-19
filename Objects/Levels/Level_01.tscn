@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://Scripts/Level_01.gd" type="Script" id=1]
 [ext_resource path="res://Objects/TileMap1.tscn" type="PackedScene" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://Objects/TileSets/SpikeMap.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scripts/Darkhandler.gd" type="Script" id=7]
 [ext_resource path="res://Objects/UI/UI.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Objects/UI/LevelIntro.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Objects/UI/ManaFont.tres" type="Theme" id=10]
 [ext_resource path="res://Objects/Enemies/ENE_Doge.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Objects/Items/LevelExitShrine.tscn" type="PackedScene" id=12]
@@ -177,6 +178,12 @@ valign = 1
 [node name="StaticBody2D" parent="Sign" instance=ExtResource( 19 )]
 position = Vector2( 169, -18 )
 text = "[V]: Phase."
+
+[node name="LevelIntro" parent="." instance=ExtResource( 9 )]
+margin_left = 24.0
+margin_top = -202.0
+margin_right = 24.0
+margin_bottom = -202.0
 
 [connection signal="body_entered" from="Darkhandler/Spikes2" to="Plyr_Cat" method="_on_Spikes_body_entered"]
 [connection signal="body_entered" from="LightHandler/Spikes" to="Plyr_Cat" method="_on_Spikes_body_entered"]

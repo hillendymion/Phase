@@ -422,6 +422,7 @@ tracks/16/keys = {
 }
 
 [node name="CatDie" type="Node2D"]
+z_index = 30
 script = ExtResource( 5 )
 
 [node name="cat" type="Sprite" parent="."]
@@ -467,6 +468,7 @@ texture = ExtResource( 2 )
 hframes = 2
 
 [node name="ColorRect" type="ColorRect" parent="."]
+light_mask = 0
 margin_left = 320.0
 margin_top = -180.0
 margin_right = 960.0

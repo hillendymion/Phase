@@ -12,8 +12,8 @@ onready var rawr = $AudioStreamPlayer
 
 var rawrcheck = 0
 var g_direction = Vector2.UP
-export var WANDER_SPEED = 80.0
-export var SEEK_SPEED = 160.0
+export var WANDER_SPEED = 60.0
+export var SEEK_SPEED = 180.0
 export var SEEK_COOLDOWN = 3.0
 var accel = 200.0
 var seek_time_remaining = 0.0
@@ -68,7 +68,7 @@ func _on_TopBouncer_body_entered(body: Node) -> void:
 	
 
 func set_behavior(new_state):
-	print("%s changing state to %s" % [name, new_state])
+	#print("%s changing state to %s" % [name, new_state])
 	# TODO? Confirm valid state transition?
 	# TODO? Put signals here?
 	state = new_state

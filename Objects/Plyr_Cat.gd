@@ -23,6 +23,8 @@ onready var sprite = $Sprite
 onready var Hurtbox = $Hurtbox
 onready var sound_jump = $SFX_Jump
 onready var Ptimer = $Ptimer
+onready var jumpBuffer = $Jumpbuffer
+onready var coyoteTime = $CoyoteTime
 #sfx
 onready var SFXJump = $SFX_Jump
 onready var SFXPhaseBlack = $SFX_Phase_Black
@@ -86,12 +88,13 @@ func Move_State(delta):
 	vel.y += GRAVITY*delta 
 		
 	#jumping
+	if Input.is_action_just_pressed("ui_jump"):
+		jumpBuffer.start()
+		
 	if is_on_floor(): 
- 
-		if Input.is_action_just_pressed("ui_jump"):
-			vel.y = -JUMPFORCE
-			SFXJump.play()
-			anim_player.play("JumpL")
+		coyoteTime.start()
+		if !jumpBuffer.is_stopped():
+			jump()
 		if Input.is_action_pressed("ui_run"):
 			running = true
 		if Input.is_action_just_released("ui_run"):
@@ -99,7 +102,11 @@ func Move_State(delta):
 		if x_Input == 0:
 			vel.x = lerp(vel.x, 0, FRICTION) #same as line above.
 	else:
-	
+		#in the air
+		if coyoteTime.is_stopped():
+			pass#vel.y += GRAVITY*delta #not quite sure about this here.
+		elif !jumpBuffer.is_stopped():
+			jump()
 		if Input.is_action_just_released("ui_jump") and vel.y < -JUMPFORCE/2:
 			vel.y = -JUMPFORCE/2
 			anim_player.play("JumpL")
@@ -148,7 +155,12 @@ func _on_Spikes_body_entered(body: Node) -> void:
 		print("spiked")
 		die()
 
-
+func jump():
+	vel.y = -JUMPFORCE
+	jumpBuffer.stop()
+	SFXJump.play()
+	anim_player.play("JumpL")
+	coyoteTime.stop()
 
 
 func die():

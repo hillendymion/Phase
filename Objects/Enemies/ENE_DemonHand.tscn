@@ -12,8 +12,8 @@ radius = 6.0
 height = 74.0
 
 [sub_resource type="CapsuleShape2D" id=3]
-radius = 37.0
-height = 136.0
+radius = 42.0
+height = 128.0
 
 [node name="ENE_DemonHand" type="KinematicBody2D"]
 collision_layer = 0
@@ -40,7 +40,7 @@ collision_layer = 0
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Detector"]
-position = Vector2( 0, -50 )
+position = Vector2( 0, -59 )
 shape = SubResource( 3 )
 
 [node name="Rawr" type="AudioStreamPlayer" parent="."]

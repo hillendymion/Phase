@@ -513,4 +513,10 @@ stream = ExtResource( 3 )
 [node name="SFX_Phase_White" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 5 )
 
+[node name="Jumpbuffer" type="Timer" parent="."]
+wait_time = 0.6
+
+[node name="CoyoteTime" type="Timer" parent="."]
+wait_time = 0.1
+
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]

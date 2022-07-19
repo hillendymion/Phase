@@ -100,3 +100,4 @@ align = 1
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 7 )
+autoplay = true
