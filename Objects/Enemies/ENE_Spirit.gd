@@ -15,7 +15,7 @@ var plyr = null
 onready var anim_player = $AnimationPlayer
 onready var growl = $MonGrowl
 onready var stalker = $Stalker
-onready var charge = $charger
+onready var charge = $Charge
 func _ready() -> void:
 	anim_player.play("Open")
 
